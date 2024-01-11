@@ -20,10 +20,10 @@ AI的发展历程：专用模型→通用模型
 Step 1. 模型的选型：关注开源模型不同维度上面的能力（针对于应用场景），本质上是一个**模型评测**的过程  
 Step 2. 评估业务场景：是否足够的复杂，直接使用模型是否满足需求  
 Step 3. 模型的微调：在业务场景较为复杂的情况下，需要判断算力是否足够→  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力足够，进行模型的续训/全参数微调  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力受限，进行部分参数的微调  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力足够，进行模型的续训/全参数微调  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力受限，进行部分参数的微调  
 Step 4. 是否需要和环境进行交互：例如调用外部的API，或者和已有业务的数据库进行交互  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若是，转Step 5；若否，转Step 6  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若是，转Step 5；若否，转Step 6  
 Step 5. 构建基于大模型的智能体：在业务场景中有更好的表现  
 Step 6. 模型评测：若评测不通过，则需要重新进行模型的微调或迭代  
 Step 7. 模型部署：如何使用更少的资源，如何提升整个应用的吞吐量  
@@ -39,6 +39,26 @@ Step 7. 模型部署：如何使用更少的资源，如何提升整个应用的
 **预训练——InternLM-Train**  
 四大特点：
 1. 高可拓展性：支持从8卡到千卡的训练，千卡的加速效率达到92%  
-2. 极值的性能优化：Hybrid Zero，独特技术+极致优化，加速50%
-3. 
-
+2. 极值的性能优化：Hybrid Zero，独特技术+极致优化，加速50%  
+3. 兼容主流：兼容如HuggingFace等技术生态，支持各类轻量化技术  
+4. 开箱即用：支持多种规格的语言模型，修改配置即可进行训练  
+**微调——XTuner**  
+在大语言模型的下游应用中经常用到的两种方式：增量续训和有监督微调  
+1. 增量续训  
+   使用场景：让基座模型学习到一些新知识，如某个垂类领域知识  
+   训练数据：文章、书籍、代码等，训练数据格式和预训练一致  
+2. 有监督微调  
+   使用场景：让模型学会理解和遵循各种指令，或者注入少量领域知识  
+   训练数据：高质量的对话、问答数据，数据量相比于增量续训/预训练较小  
+高效微调框架 XTuner  
+1. 适配多种生态  
+   多种微调算法：兼容多种微调策略与算法（如LoRA、QLoRA），覆盖各类SFT场景  
+   适配多种开源生态：支持加载HuggingFace、ModelScope模型或数据集  
+   自动优化加速：开发者无需关注复杂的显存优化与计算加速细节  
+2. 适配多种硬件  
+   训练方案覆盖NVIDIA 20系以上所有显卡  
+   <u>最低只需8GB显存即可微调7B模型</u>  
+**评测——OpenCompass**  
+国内外评测体系的整体趋势  
+![image](https://github.com/Alphonsinaone/InternLM/assets/155552157/447e9197-3107-44e3-9b65-cfc38c2d31d2)
+从评测的全面性来说不能满足目前大模型的发展  
