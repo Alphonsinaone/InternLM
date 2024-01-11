@@ -20,10 +20,10 @@ AI的发展历程：专用模型→通用模型
 Step 1. 模型的选型：关注开源模型不同维度上面的能力（针对于应用场景），本质上是一个**模型评测**的过程  
 Step 2. 评估业务场景：是否足够的复杂，直接使用模型是否满足需求  
 Step 3. 模型的微调：在业务场景较为复杂的情况下，需要判断算力是否足够→  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&emsp;若算力足够，进行模型的续训/全参数微调  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&emsp;若算力受限，进行部分参数的微调  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力足够，进行模型的续训/全参数微调  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若算力受限，进行部分参数的微调  
 Step 4. 是否需要和环境进行交互：例如调用外部的API，或者和已有业务的数据库进行交互  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&emsp;若是，转Step 5；若否，转Step 6  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;若是，转Step 5；若否，转Step 6  
 Step 5. 构建基于大模型的智能体：在业务场景中有更好的表现  
 Step 6. 模型评测：若评测不通过，则需要重新进行模型的微调或迭代  
 Step 7. 模型部署：如何使用更少的资源，如何提升整个应用的吞吐量  
